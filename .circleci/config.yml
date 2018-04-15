@@ -11,3 +11,7 @@ jobs:
           - "ec:bc:9d:0b:dd:a4:3b:68:cc:53:31:59:0f:82:d9:3f"
       - deploy:
           name: heroku deploy
+          command: |
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  git push heroku master
+              fi

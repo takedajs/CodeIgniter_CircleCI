@@ -1,5 +1,5 @@
 #!/bin/bash
-git remote add heroku https://git.heroku.com/nameless-waters-42650.git
+git remote add heroku git@heroku.com:nameless-waters-42650.git
 wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz
 sudo mkdir -p /usr/local/lib /usr/local/bin
 sudo tar -xvzf heroku-linux-amd64.tar.gz -C /usr/local/lib
@@ -16,4 +16,3 @@ EOF
 
 # Add heroku.com to the list of known hosts
 ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
-

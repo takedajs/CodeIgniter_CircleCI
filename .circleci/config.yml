@@ -1,37 +1,18 @@
-# PHP CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-php/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/php:7.2-node-browsers
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mysql:9.4
-
-    working_directory: ~/repo
-
+      - image:  circleci/php:7.1.8-browsers
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "composer.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: composer install -n --prefer-dist
-
-      - save_cache:
-          paths:
-            - ./vendor
-          key: v1-dependencies-{{ checksum "composer.json" }}
-        
-#      # run tests!
-#      - run: phpunit
+      - run:  wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+      - run:  bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+          - "ec:bc:9d:0b:dd:a4:3b:68:cc:53:31:59:0f:82:d9:3f"
+      - deploy:
+          name: heroku deploy
+          command: |
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  git push heroku master
+              fi

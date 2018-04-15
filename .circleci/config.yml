@@ -12,6 +12,3 @@ jobs:
       - deploy:
           name: heroku deploy
           command: |
-              if [ "${CIRCLE_BRANCH}" == "master" ]; then
-
-              fi

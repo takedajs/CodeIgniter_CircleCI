@@ -1,5 +1,6 @@
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: nameless-waters-42650
+version: 2
+jobs:
+   build:
+     steps:
+       - checkout
+       - run: echo "hello world"

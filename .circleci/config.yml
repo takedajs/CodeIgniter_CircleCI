@@ -12,6 +12,6 @@ jobs:
       - deploy:
           name: heroku deploy
           command: |
-#              if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#                  git push heroku master
-#              fi
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  git push heroku master
+              fi

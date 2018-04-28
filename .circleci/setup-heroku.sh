@@ -16,4 +16,3 @@ EOF
 
 # Add heroku.com to the list of known hosts
 ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
-

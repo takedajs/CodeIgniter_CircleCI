@@ -1,22 +1,22 @@
-#version: 2
-#jobs:
-#  build:
-#    docker:
-#      - image:  circleci/php:7.1.8-browsers
-##    branches:
-##      only:
-##        - master
-#    steps:
-#      - checkout
-#      - run:  bash .circleci/setup-heroku.sh
-#      - add_ssh_keys:
-#          fingerprints:
-#          - "ec:bc:9d:0b:dd:a4:3b:68:cc:53:31:59:0f:82:d9:3f"
-#      - deploy:
-#          name: heroku deploy
-#          command: |
-#              git push heroku master
-#
-#              curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"masterをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEB_HOOK}"
-#
-#
+version: 2
+jobs:
+  build:
+    docker:
+      - image:  circleci/php:7.1.8-browsers
+#    branches:
+#      only:
+#        - master
+    steps:
+      - checkout
+      - run:  bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+          - "ec:bc:9d:0b:dd:a4:3b:68:cc:53:31:59:0f:82:d9:3f"
+      - deploy:
+          name: heroku deploy
+          command: |
+              git push heroku master
+
+              curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"masterをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEB_HOOK}"
+
+

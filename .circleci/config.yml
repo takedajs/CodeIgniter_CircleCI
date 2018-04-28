@@ -3,9 +3,9 @@ jobs:
   build:
     docker:
       - image:  circleci/php:7.1.8-browsers
-#    branches:
-#      only:
-#        - master
+    branches:
+      only:
+        - master
     steps:
       - checkout
       - run:  bash .circleci/setup-heroku.sh
@@ -15,9 +15,7 @@ jobs:
       - deploy:
           name: heroku deploy
           command: |
-              if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                  git push heroku master
+              git push heroku master
 
-                  curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"masterをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEB_HOOK}"
-              fi
+              curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"masterをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEB_HOOK}"
 

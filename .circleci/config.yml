@@ -18,5 +18,5 @@ jobs:
               if [ "${CIRCLE_BRANCH}" == "master" ]; then
                   git push heroku master
 
-                  curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"developをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" $SLACK_WEB_HOOK
+                  curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"masterをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" $SLACK_WEB_HOOK
               fi

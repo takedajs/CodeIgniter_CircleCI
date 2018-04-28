@@ -18,5 +18,5 @@ jobs:
               if [ "${CIRCLE_BRANCH}" == "master" ]; then
                   git push heroku master
 
-                  curl -X POST --data-urlencode "payload={\"channel\": \"#los\", \"username\": \"wanko\", \"text\": \"<!channel> 本番環境への反映が完了しました。確認お願いいたします。\", \"icon_emoji\": \":ghost:\"}" ${SLACK_WEB_HOOK}
+                  curl -X POST --data-urlencode "payload={\"channel\": \"#los\", \"username\": \"wanko\", \"text\": \"<!channel> 本番環境への反映が完了しました。確認お願いいたします。\", \"icon_emoji\": \":ghost:\"}" $SLACK_WEB_HOOK
               fi

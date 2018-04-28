@@ -15,7 +15,7 @@ jobs:
       - deploy:
           name: heroku deploy
           command: |
-#              git push heroku master
+              git push heroku master
 
               curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"masterをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEB_HOOK}"
 

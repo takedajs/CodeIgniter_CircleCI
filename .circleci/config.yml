@@ -19,4 +19,3 @@ jobs:
 
               curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"masterをデプロイしました。\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEB_HOOK}"
 
-

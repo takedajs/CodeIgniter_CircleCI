@@ -1,1 +1,1 @@
-<img src="https://www.pakutaso.com/shared/img/thumb/cat126IMGL6393_TP_V.jpg" width="600">
+<img src="https://raw.githubusercontent.com/takedajs/ImageStorage/master/images/circle_ci%E7%8C%AB%E7%94%BB%E5%83%8F.jpg" width="600">
